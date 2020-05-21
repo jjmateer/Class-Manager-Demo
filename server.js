@@ -17,20 +17,20 @@ app.use(routes);
 
 var dbUrl = "";
 
-if (process.env.NODE_ENV === "production") {
-  dbUrl = `mongodb+srv://jjmateer:${process.env.MONGO_PW}@cluster0-q0kab.mongodb.net/classorganizerdb?retryWrites=true&w=majority`;
+// if (process.env.NODE_ENV === "production") {
+  dbUrl = `mongodb+srv://jjmateer:${process.env.MONGO_PW}@cluster0-q0kab.mongodb.net/classorganizerdbdemo?retryWrites=true&w=majority`;
   app.use(express.static(path.join(__dirname, "/client/build")));
   app.get("*", function (req, res) {
     res.sendFile(path.join(__dirname, "./client/build/index.html"));
   });
-}
-else {
-  dbUrl = "mongodb://localhost/classorganizerdb";
-  app.use(express.static(path.join(__dirname, "/client/public")));
-  app.get("*", function (req, res) {
-    res.sendFile(path.join(__dirname, "./client/public/index.html"));
-  });
-}
+// }
+// else {
+//   dbUrl = "mongodb://localhost/classorganizerdb";
+//   app.use(express.static(path.join(__dirname, "/client/public")));
+//   app.get("*", function (req, res) {
+//     res.sendFile(path.join(__dirname, "./client/public/index.html"));
+//   });
+// }
 
 
 mongoose.connect(dbUrl, {

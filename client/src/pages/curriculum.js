@@ -60,7 +60,7 @@ class Curriculum extends Component {
         setTimeout(
             function () {
                 this.props.getSubjects();
-                this.forceUpdate();
+                // this.forceUpdate();
             }
                 .bind(this),
             10
