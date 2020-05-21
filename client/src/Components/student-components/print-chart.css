@@ -1,0 +1,61 @@
+.print-chart-table tr,
+.print-chart-table td,
+.print-chart-table th {
+  border: 1px solid black;
+}
+
+.print-chart-table {
+  /* width: 385px; */
+  /* height:90%; */
+  border-top: none;
+  margin: auto;
+  margin-top: 0;
+  table-layout: fixed;
+}
+
+#RC-print-chart-table {
+  /* transform: rotate(90deg); */
+  border-top: none;
+  /* margin-top: 0; */
+  /* margin: auto; */
+  table-layout: fixed;
+  display: block;
+  margin-bottom:0px;
+  margin-top:0px;
+  width:100%;
+  font-size:30px;
+}
+
+#RC-table-wrap {
+  display:block;
+  margin:auto;
+  width:100vw;
+  height:auto;
+  transform: rotate(-90deg);
+}
+
+#sideways-title {
+  width:430px;
+  font-size: 18px;
+  padding-left: 3px;
+  margin: 0;
+  margin-left:-200px;
+}
+
+#sideways-title-wrap {
+  padding-left: 0 !important;
+  height:430px;
+  max-width:30px;
+  padding:0px!important;
+  transform: rotate(-90deg);
+}
+
+#RC-table-wrap {
+  margin-bottom: 10vh;
+}
+
+#print-all-table-wrap {
+  /* margin-top:-200px; */
+  overflow:visible;
+  font-size:18px;
+}

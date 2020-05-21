@@ -1,0 +1,14 @@
+.register-form-wrap {
+    width:50vw;
+    margin:auto;
+    margin-top:50px;
+}
+.register-submit-btn {
+    /* float:right; */
+    width:20%;
+    margin:auto;
+}
+.page-header {
+    text-align:center;
+    margin-top:50px;
+}
