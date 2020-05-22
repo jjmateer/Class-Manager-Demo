@@ -17,6 +17,7 @@ import PrintChart from "./pages/print-chart-individual";
 import PrintChartAll from "./pages/print-chart-all";
 import PrintChartRC from "./pages/print-chart-report-card";
 import ViewStudentGrades from "./pages/view-student-grades";
+import ViewSubject from "./pages/view-subject";
 import Curriculum from "./pages/curriculum";
 import 'whatwg-fetch';
 import openSocket from 'socket.io-client';
@@ -71,7 +72,7 @@ class App extends Component {
             <PublicRoute exact path="/" component={Home} />
             <PublicRoute exact path="/register" component={Register} />
             <PrivateRoute exact path="/students" component={StudentSearch} />
-
+            <PrivateRoute exact path="/view-subject" component={ViewSubject} />
             <PrivateRoute exact path="/print-chart" component={PrintChart} />
             <PrivateRoute exact path="/print-chart-all" component={PrintChartAll} />
             <PrivateRoute exact path="/print-chart-rc" component={PrintChartRC} />

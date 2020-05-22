@@ -137,7 +137,7 @@ router.put("/delete-assignment/:id/:assignment", (req, res) => {
         { _id: req.params.id },
         { $pull: { "assignments": { "title": req.params.assignment } } }
     ).then(() => {
-        // res.status(200).json({ msg: "Assignment deleted." });
+        res.status(200);
     })
     Student.updateMany(
         {},

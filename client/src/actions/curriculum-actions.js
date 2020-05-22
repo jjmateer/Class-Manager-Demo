@@ -57,7 +57,7 @@ export const createCurriculum = title => (dispatch) => {
 export const addAssignment = (title, data, addIndex) => (dispatch) => {
     const dataToSend = {
         data: data,
-        addIndex:addIndex
+        addIndex: addIndex
     }
     dispatch({ type: ADD_ASSIGNMENT })
     const config = {

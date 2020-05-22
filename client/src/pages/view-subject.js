@@ -2,25 +2,19 @@ import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import {
     Button,
-    Modal,
-    ModalHeader,
-    ModalFooter,
     Table
 } from 'reactstrap';
-import VerifyDeleteAssignmentModal from "./verify-delete-assignment-modal";
-import AddAssignment from "./add-assignment-form";
+import VerifyDeleteAssignmentModal from "../Components/curriculum-components/verify-delete-assignment-modal";
+// import AddAssignment from "./add-assignment-form";
 // import EditAssignmentModal from "./edit-assignment-modal";
 
 
 const ViewSubject = (props) => {
-    const togglemodal = () => setModal(!modal);
-    const [modal, setModal] = useState(false);
+
     const { assignments } = props.subjectinfo
     return (
         <>
-            <Button color="info" onClick={togglemodal}>View</Button>
-            <Modal isOpen={modal} toggle={togglemodal}>
-                <ModalHeader toggle={togglemodal}>{props.subjecttitle}</ModalHeader>
+            <Button color="info">View</Button>
                 <div style={{ flexDirection: "row" }}>
                     <Button tag={Link} color="info" to="/print-chart-all" id={props.subjecttitle} onClick={props.viewSubject} style={{ width: "100%", margin: "auto" }}>Spreadsheet</Button>
                     {/* <AddAssignment
@@ -63,9 +57,6 @@ const ViewSubject = (props) => {
                         </thead>
                     </Table>
                 </div>
-                <ModalFooter>
-                </ModalFooter>
-            </Modal>
         </>
     );
 }
