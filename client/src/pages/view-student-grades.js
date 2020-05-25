@@ -128,9 +128,6 @@ class ViewStudentGrades extends Component {
                                                                 <Button color="info" onClick={this.gradeStudentN} id={this.props.student.view_student.sdata._id} subject={subject.title} type="button" name={assignment.title} value={"L"} >L</Button>
                                                                 :
                                                                 this.state.clickedColorChangeN[this.state.clickedColorChangeN.length - 1] == `${subject.title}${assignment.title}L/November` ?
-                                                                    <Button color="success" onClick={this.gradeStudentN} id={this.props.student.view_student.sdata._id} subject={subject.title} type="button" name={assignment.title} value={"L"} >L</Button>
-                                                                    :
-                                                                    this.state.clickedColorChangeN.includes(`${subject.title}${assignment.title}L/November`) ?
                                                                     <Button color="warning" onClick={this.gradeStudentN} id={this.props.student.view_student.sdata._id} subject={subject.title} type="button" name={assignment.title} value={"L"} >L</Button>
                                                                     :
                                                                     <Button color="info" onClick={this.gradeStudentN} id={this.props.student.view_student.sdata._id} subject={subject.title} type="button" name={assignment.title} value={"L"} >L</Button>
