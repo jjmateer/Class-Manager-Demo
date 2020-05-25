@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { clearErrors } from "../actions/error-actions";
@@ -6,10 +6,8 @@ import { loadUser } from "../actions/auth-actions";
 import {
     Button,
     ButtonGroup,
-    Modal,
-    ModalHeader,
     Table,
-    Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Alert
+     Alert
 } from 'reactstrap';
 import ViewStudentDropdown from "../Components/student-components/view-student-dropdown";
 import {
@@ -22,8 +20,6 @@ import {
     gradeStudentM,
     viewStudentRC
 } from "../actions/student-actions";
-import ViewStudent from "../Components/student-components/view-student"
-import { Link } from "react-router-dom";
 
 
 class ViewStudentGrades extends Component {
@@ -101,7 +97,7 @@ class ViewStudentGrades extends Component {
                     {
                         this.props.student.view_student.sdata.grades.map((subject, index) => subject.title === this.state.view_subject && subject.assignments ? (
                             <div style={{ height: "85vh" }} className="table-responsive" key={`${subject.title}${index}`}>
-                                <Button color="info" style={{ width: "100%", display: "block", textAlign: "center", marginTop: 50 }} key={this.props.student.view_student.sdata._id} name={subject.title} onClick={this.viewStudent} id={this.props.student.view_student.sdata._id}>Spreadsheet</Button>
+                                <Button color="warning" style={{ display: "block", textAlign: "center", marginTop: 50, marginBottom: 50, float: "right", marginRight: 50 }} key={this.props.student.view_student.sdata._id} name={subject.title} onClick={this.viewStudent} id={this.props.student.view_student.sdata._id}>Spreadsheet</Button>
                                 <Table className="table">
                                     <thead>
                                         <tr>

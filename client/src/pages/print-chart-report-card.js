@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { clearErrors } from "../actions/error-actions";
 import { loadUser } from "../actions/auth-actions";
 import { getStudents } from "../actions/student-actions";
-import ReactToPrint from "react-to-print";
 import "../Components/student-components/print-chart.css";
 
 

@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { clearErrors } from "../actions/error-actions";
 import { loadUser } from "../actions/auth-actions";
-import { Jumbotron, Button, ButtonGroup } from "reactstrap";
+import { Jumbotron } from "reactstrap";
 
 
 class Home extends Component {

@@ -11,7 +11,6 @@ import {
     Button,
     Modal,
     ModalHeader,
-    ModalFooter,
     Form,
     Label,
     Input,

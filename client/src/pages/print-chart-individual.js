@@ -27,7 +27,7 @@ class PrintChart extends Component {
         return (
             <>
             {view_student.subject ? 
-                <div className="table-responsive">
+                <div className="table-responsive" style={{marginTop: 50}}>
                     <table className="print-chart-table">
                         <thead>
                             <tr style={{ width: 400 }}>

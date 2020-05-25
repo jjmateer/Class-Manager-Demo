@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 import PrintChartAllDropdown from "../Components/student-components/print-chart-all-dropdown";
 import { connect } from "react-redux";
 import { clearErrors } from "../actions/error-actions";
@@ -30,11 +29,6 @@ class PrintChartAll extends Component {
         this.setState({ [event.target.id]: event.target.value });
     };
     render() {
-        if (this.state.month === 5) {
-            const month = "may";
-        } else if (this.state.month === 11) {
-            const month = "november";
-        }
 
         return (
             <>

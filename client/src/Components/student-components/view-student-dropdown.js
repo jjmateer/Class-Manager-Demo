@@ -1,13 +1,7 @@
 import React, { useState } from "react";
 import {
-  Button,
-  ButtonGroup,
-  Modal,
-  ModalHeader,
-  Table,
-  Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Alert
+  Dropdown, DropdownToggle, DropdownMenu, DropdownItem
 } from 'reactstrap';
-import { Link } from "react-router-dom";
 import './student.css';
 
 const ViewStudentDropdown = React.memo((props) => {

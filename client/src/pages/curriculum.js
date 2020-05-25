@@ -16,16 +16,11 @@ import { getStudents, viewStudent } from "../actions/student-actions";
 import { Link } from "react-router-dom";
 import AddAssignment from "../Components/curriculum-components/add-assignment-form";
 import {
-    Card,
-    CardBody,
-    CardTitle,
     Button,
     ButtonGroup,
     Spinner,
-    Table
 } from 'reactstrap';
 import CreateCirriculum from "../Components/curriculum-components/create-curriculum-form";
-// import ViewSubject from "../Components/curriculum-components/view-subject-modal";
 import ViewSubject from "../Components/curriculum-components/view-subject";
 import VerifyDeleteModal from "../Components/curriculum-components/verify-delete-modal";
 
@@ -122,7 +117,7 @@ class Curriculum extends Component {
                     error={this.props.error}
                 />
                 {!this.props.curriculum.isLoading ?
-                    <div className="accordion" id="accordionExample" style={{ marginTop: 75 }}>
+                    <div className="accordion" id="accordion" style={{ marginTop: 75 }}>
                         {subjects.map((subject, index) => (
                             <div className="card" key={`${subject._id}${index}1`}>
                                 <div className="card-header" id="headingOne">
@@ -133,10 +128,10 @@ class Curriculum extends Component {
                                     </h2>
                                 </div>
 
-                                <div id={`collapse${index}`} className="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                <div id={`collapse${index}`} className="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                                     <div className="card-body">
-                                        <ButtonGroup>
-                                            <Button tag={Link} color="info" to="/print-chart-all" id={subject.title} onClick={this.viewSubject} style={{ width: "100%", margin: "auto" }}>Spreadsheet</Button>
+                                        <ButtonGroup style={{ marginBottom: 25 }}>
+                                            <Button tag={Link} color="warning" to="/print-chart-all" id={subject.title} onClick={this.viewSubject} style={{ width: "100%", margin: "auto" }}>Spreadsheet</Button>
                                             <AddAssignment
                                                 title={subject.title}
                                                 addAssignment={this.addAssignment}
@@ -150,7 +145,6 @@ class Curriculum extends Component {
                                             />
                                         </ButtonGroup>
                                         <ViewSubject
-                                            subjectinfo={subject}
                                             getSubjects={this.props.getSubjects}
                                             viewStudent={this.props.viewStudent}
                                             student={this.props.student}
@@ -162,74 +156,12 @@ class Curriculum extends Component {
                                             handleInputChange={this.handleInputChange}
                                             newAssignmentIndex={this.state.newAssignmentIndex}
                                         />
-                                        {/* </ButtonGroup> */}
                                     </div>
                                 </div>
                             </div>
                         ))}
                     </div>
                     : <div style={{ margin: "auto", width: 50 }}><Spinner type="grow" color="primary" /></div>}
-
-                {/* <h1 className="page-header">Subjects</h1> */}
-                {/* <CreateCirriculum
-                    createCurriculum={this.createCurriculum}
-                    handleInputChange={this.handleInputChange}
-                    error={this.props.error}
-                /> */}
-                {!this.props.curriculum.isLoading ?
-                    <>
-                        {/* {subjects.length ?
-                            <div className="table-responsive">
-                                <Table style={{ marginTop: 50 }}>
-                                    <thead>
-                                        <tr>
-                                            <th>Title</th>
-                                            <th>Options</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {subjects.map((subject, index) => (
-                                            <tr key={`${subject._id}${index}`}>
-                                                <td>
-                                                    {subject.title}
-                                                </td>
-                                                <td>
-                                                    <ButtonGroup>
-                                                        <ViewSubject
-                                                            subjectinfo={subject}
-                                                            getSubjects={this.props.getSubjects}
-                                                            viewStudent={this.props.viewStudent}
-                                                            student={this.props.student}
-                                                            subjecttitle={subject.title}
-                                                            subjectinfo={subject}
-                                                            viewSubject={this.viewSubject}
-                                                            deleteAssignment={this.deleteAssignment}
-                                                            editAssignment={this.editAssignment}
-                                                            handleInputChange={this.handleInputChange}
-                                                            newAssignmentIndex={this.state.newAssignmentIndex}
-                                                        />
-                                                        <AddAssignment
-                                                            title={subject.title}
-                                                            addAssignment={this.addAssignment}
-                                                            handleInputChange={this.handleInputChange}
-                                                            subject={subject}
-                                                            newAssignmentIndex={this.state.newAssignmentIndex}
-                                                        />
-                                                        <VerifyDeleteModal
-                                                            subject={subject}
-                                                            deleteSubject={this.deleteSubject}
-                                                        />
-                                                    </ButtonGroup>
-                                                </td>
-                                            </tr>
-                                        ))}
-                                    </tbody>
-                                </Table>
-                            </div>
-                            : null} */}
-                    </>
-                    : <div style={{ margin: "auto", width: 50 }}><Spinner type="grow" color="primary" /></div>
-                }
             </>
         );
     }

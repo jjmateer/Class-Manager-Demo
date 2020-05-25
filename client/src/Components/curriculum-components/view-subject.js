@@ -1,12 +1,8 @@
-import React, { useState } from 'react';
-import { Link } from "react-router-dom";
+import React from 'react';
 import {
-    Button,
     Table
 } from 'reactstrap';
 import VerifyDeleteAssignmentModal from "./verify-delete-assignment-modal";
-// import AddAssignment from "./add-assignment-form";
-// import EditAssignmentModal from "./edit-assignment-modal";
 
 
 const ViewSubject = (props) => {
@@ -14,17 +10,7 @@ const ViewSubject = (props) => {
     const { assignments } = props.subjectinfo
     return (
         <>
-        
-            {/* <Button color="info">View</Button> */}
             <div style={{ flexDirection: "row" }}>
-                {/* <Button tag={Link} color="info" to="/print-chart-all" id={props.subjecttitle} onClick={props.viewSubject} style={{ width: "100%", margin: "auto" }}>Spreadsheet</Button> */}
-                {/* <AddAssignment
-                    title={props.subjectinfo.title}
-                    addAssignment={props.addAssignment}
-                    handleInputChange={props.handleInputChange}
-                    subject={props.subjectinfo}
-                    newAssignmentIndex={props.newAssignmentIndex}
-                /> */}
             </div>
             <div className="table-responsive">
                 <Table key={props.subjecttitle}>
@@ -45,12 +31,6 @@ const ViewSubject = (props) => {
                                                 subjectinfo={props.subjectinfo}
                                                 deleteAssignment={props.deleteAssignment}
                                             />
-                                            {/* <EditAssignmentModal
-                                                    editAssignment={props.editAssignment}
-                                                    subjecttitle={props.subjecttitle}
-                                                    assignment={assignment}
-                                                    handleInputChange={props.handleInputChange}
-                                                /> */}
                                         </td>
                                     </tr>
                                 )

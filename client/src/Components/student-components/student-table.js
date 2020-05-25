@@ -7,8 +7,6 @@ import {
 import EditStudentModal from "./edit-student-modal";
 import "./student.css";
 import VerifyDeleteModal from "./verify-delete-modal";
-import ViewStudent from "./view-student";
-import { Link } from "react-router-dom";
 
 
 
