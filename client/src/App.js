@@ -17,7 +17,7 @@ import PrintChart from "./pages/print-chart-individual";
 import PrintChartAll from "./pages/print-chart-all";
 import PrintChartRC from "./pages/print-chart-report-card";
 import ViewStudentGrades from "./pages/view-student-grades";
-import ViewSubject from "./pages/view-subject";
+import ViewSubject from "./Components/curriculum-components/view-subject";
 import Curriculum from "./pages/curriculum";
 import 'whatwg-fetch';
 import openSocket from 'socket.io-client';

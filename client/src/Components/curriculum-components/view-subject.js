@@ -4,7 +4,7 @@ import {
     Button,
     Table
 } from 'reactstrap';
-import VerifyDeleteAssignmentModal from "../Components/curriculum-components/verify-delete-assignment-modal";
+import VerifyDeleteAssignmentModal from "./verify-delete-assignment-modal";
 // import AddAssignment from "./add-assignment-form";
 // import EditAssignmentModal from "./edit-assignment-modal";
 
@@ -17,7 +17,7 @@ const ViewSubject = (props) => {
         
             {/* <Button color="info">View</Button> */}
             <div style={{ flexDirection: "row" }}>
-                <Button tag={Link} color="info" to="/print-chart-all" id={props.subjecttitle} onClick={props.viewSubject} style={{ width: "100%", margin: "auto" }}>Spreadsheet</Button>
+                {/* <Button tag={Link} color="info" to="/print-chart-all" id={props.subjecttitle} onClick={props.viewSubject} style={{ width: "100%", margin: "auto" }}>Spreadsheet</Button> */}
                 {/* <AddAssignment
                     title={props.subjectinfo.title}
                     addAssignment={props.addAssignment}

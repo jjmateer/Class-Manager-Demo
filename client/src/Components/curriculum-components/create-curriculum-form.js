@@ -15,7 +15,7 @@ const CreateCirriculum = (props) => {
     const [modal, setModal] = useState(false);
     return (
         <>
-            <Button color="success" style={{ float:"right", marginRight: "2vw" }} onClick={togglemodal}>Create new subject</Button>
+            <Button color="success" style={{  marginRight: "2vw", marginBottom: "2vh", float: "right" }} onClick={togglemodal}>Create new subject</Button>
             <Modal isOpen={modal} toggle={togglemodal}>
                 <ModalHeader toggle={togglemodal}>New subject</ModalHeader>
                 <Form style={{padding:20}} onSubmit={props.createCurriculum}>
