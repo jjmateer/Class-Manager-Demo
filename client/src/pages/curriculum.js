@@ -24,6 +24,7 @@ import {
 } from 'reactstrap';
 import CreateCirriculum from "../Components/curriculum-components/create-curriculum-form";
 import ViewSubject from "../Components/curriculum-components/view-subject-modal";
+// import ViewSubject from "../pages/view-subject";
 import VerifyDeleteModal from "../Components/curriculum-components/verify-delete-modal";
 
 
@@ -112,6 +113,51 @@ class Curriculum extends Component {
         const { subjects } = this.props.curriculum;
         return (
             <>
+
+                <div className="accordion" id="accordionExample">
+                    {subjects.map((subject, index) => (
+                        <div className="card" key={`${subject._id}${index}1`}>
+                            <div className="card-header" id="headingOne">
+                                <h2 className="mb-0">
+                                    <button className="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target={`#collapse${index}`} aria-expanded="true" aria-controls={`#collapse${index}`}>
+                                        {subject.title}
+                                    </button>
+                                </h2>
+                            </div>
+
+                            <div id={`collapse${index}`} className="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                <div className="card-body">
+                                    <ButtonGroup>
+                                        <ViewSubject
+                                            subjectinfo={subject}
+                                            getSubjects={this.props.getSubjects}
+                                            viewStudent={this.props.viewStudent}
+                                            student={this.props.student}
+                                            subjecttitle={subject.title}
+                                            subjectinfo={subject}
+                                            viewSubject={this.viewSubject}
+                                            deleteAssignment={this.deleteAssignment}
+                                            editAssignment={this.editAssignment}
+                                            handleInputChange={this.handleInputChange}
+                                            newAssignmentIndex={this.state.newAssignmentIndex}
+                                        />
+                                        <AddAssignment
+                                            title={subject.title}
+                                            addAssignment={this.addAssignment}
+                                            handleInputChange={this.handleInputChange}
+                                            subject={subject}
+                                            newAssignmentIndex={this.state.newAssignmentIndex}
+                                        />
+                                        <VerifyDeleteModal
+                                            subject={subject}
+                                            deleteSubject={this.deleteSubject}
+                                        />
+                                    </ButtonGroup>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
                 <h1 className="page-header">Subjects</h1>
                 <CreateCirriculum
                     createCurriculum={this.createCurriculum}
@@ -122,7 +168,7 @@ class Curriculum extends Component {
                     <>
                         {subjects.length ?
                             <div className="table-responsive">
-                                <Table style={{marginTop:50}}>
+                                <Table style={{ marginTop: 50 }}>
                                     <thead>
                                         <tr>
                                             <th>Title</th>
