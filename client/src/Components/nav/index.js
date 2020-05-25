@@ -37,7 +37,7 @@ const Navigation = (props) => {
                     {!props.isAuthenticated ?
                         <Nav className="ml-auto" navbar>
                             {props.isLoading ? <Spinner type="grow" color="primary" /> : <NavLink tag={Link} to="#" onClick={togglemodal}>Login</NavLink>}
-                            {props.isLoading ? <Spinner type="grow" color="primary" /> : <NavLink tag={Link} to="/register">Register</NavLink>}
+                            {/* {props.isLoading ? <Spinner type="grow" color="primary" /> : <NavLink tag={Link} to="/register">Register</NavLink>} */}
                         </Nav>
                         :
                         <Nav className="ml-auto" navbar>
