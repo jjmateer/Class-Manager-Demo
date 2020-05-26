@@ -80,7 +80,7 @@ router.put("/grade-studentN", (req, res) => {
                 .then(() => {
                     // console.log(data.grades)
                     // console.log(newData)
-                    res.status(200).json(newData);
+                    res.status(200).json(newData.sdata);
                 })
         })
 
