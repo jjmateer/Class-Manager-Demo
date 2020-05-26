@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component} from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { clearErrors } from "../actions/error-actions";
@@ -10,6 +10,7 @@ import {
     Table,
     Alert
 } from 'reactstrap';
+import GradeDropdown from "../Components/student-components/grade-dropdown";
 import ViewStudentDropdown from "../Components/student-components/view-student-dropdown";
 import {
     addStudent,
@@ -22,8 +23,8 @@ import {
     viewStudentRC
 } from "../actions/student-actions";
 
-
 class ViewStudentGrades extends Component {
+    
     state = {
         firstName: "",
         lastName: "",
@@ -70,14 +71,6 @@ class ViewStudentGrades extends Component {
         this.setState({
             arr: this.state.clickedColorChangeN.push(`${event.target.getAttribute("subject")}${event.target.name}${event.target.getAttribute("value")}/November`)
         })
-        console.log(event.target.id)
-        let count;
-        for (let i = 0; i < this.state.clickedColorChangeN.length; i++) {
-            if (i === `${event.target.getAttribute("subject")}${event.target.name}${event.target.getAttribute("value")}/November`) {
-                count++
-                console.log(`${event.target.getAttribute("subject")}${event.target.name}${event.target.getAttribute("value")}/November`)
-            }
-        }
     }
     gradeStudentM = event => {
         event.preventDefault();
@@ -129,18 +122,27 @@ class ViewStudentGrades extends Component {
                                     </thead>
                                     <tbody>
                                         {subject.assignments.map((assignment, index) =>
+                                        
                                             <tr key={`${assignment._id}${index}`}>
                                                 <>
                                                     <td>{assignment.title}</td>
                                                     <td>
                                                         <Alert color="info">November grade: {assignment.gradeN} {this.state.updateStudent === true ? assignment.gradeN : null}</Alert>
-                                                        <ButtonGroup>
+                                                        <GradeDropdown
+                                                        gradeStudentN={this.props.gradeStudentN}
+                                                        subjectTitle={subject.title}
+                                                        assignmentTitle={assignment.title}
+                                                        gradeLetters={this.state.gradeLetters}
+                                                        clickedColorChangeN={this.state.clickedColorChangeN}
+                                                        studentID={this.props.student.view_student.sdata._id}
+                                                        />
+                                                        {/* <ButtonGroup data-toggle="button">
                                                             {this.state.gradeLetters.map((letter, index) => (
                                                                 !this.state.clickedColorChangeN.includes(`${subject.title}${assignment.title}${letter}/November`) ?
                                                                     <Button color="info" key={`${subject.title}${assignment.title}${letter}/November`} onClick={this.gradeStudentN} id={this.props.student.view_student.sdata._id} subject={subject.title} type="button" name={assignment.title} value={letter} >{letter}</Button>
                                                                     :
                                                                     this.state.clickedColorChangeN[this.state.clickedColorChangeN.length - 1] == `${subject.title}${assignment.title}${letter}/November` ?
-                                                                        <Button color="success" key={`${subject.title}${assignment.title}${letter}/November`} onClick={this.gradeStudentN} id={this.props.student.view_student.sdata._id} subject={subject.title} type="button" name={assignment.title} value={letter} >{letter}</Button>
+                                                                        <Button color="warning" key={`${subject.title}${assignment.title}${letter}/November`} onClick={this.gradeStudentN} id={this.props.student.view_student.sdata._id} subject={subject.title} type="button" name={assignment.title} value={letter} >{letter}</Button>
                                                                         :
                                                                         <Button color={this.state.clickedColorChangeN.includes(`${subject.title}${assignment.title}${letter}/November`) ? "warning" : "info"} key={`${subject.title}${assignment.title}${letter}/November`} onClick={this.gradeStudentN} id={this.props.student.view_student.sdata._id} subject={subject.title} type="button" name={assignment.title} value={letter} >{letter}</Button>
 
@@ -149,11 +151,11 @@ class ViewStudentGrades extends Component {
                                                                 <Button color="info" onClick={this.gradeStudentN} id={this.props.student.view_student.sdata._id} subject={subject.title} type="button" name={assignment.title} value={null} >X</Button>
                                                                 :
                                                                 this.state.clickedColorChangeN[this.state.clickedColorChangeN.length - 1] == `${subject.title}${assignment.title}null/November` ?
-                                                                    <Button color="success" onClick={this.gradeStudentN} id={this.props.student.view_student.sdata._id} subject={subject.title} type="button" name={assignment.title} value={null} >X</Button>
+                                                                    <Button color="warning" onClick={this.gradeStudentN} id={this.props.student.view_student.sdata._id} subject={subject.title} type="button" name={assignment.title} value={null} >X</Button>
                                                                     :
                                                                     <Button color={this.state.clickedColorChangeN.includes(`${subject.title}${assignment.title}null/November`) ? "warning" : "info"} onClick={this.gradeStudentN} id={this.props.student.view_student.sdata._id} subject={subject.title} type="button" name={assignment.title} value={null} >X</Button>
                                                             }
-                                                        </ButtonGroup>
+                                                        </ButtonGroup> */}
                                                     </td>
                                                     <td>
                                                         <Alert color="info">May grade: {assignment.gradeM}</Alert>
