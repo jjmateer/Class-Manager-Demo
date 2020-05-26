@@ -77,15 +77,17 @@ router.put("/grade-studentN", (req, res) => {
         .then(() => {
             Student.findOneAndUpdate({ _id: student },
                 { $set: { grades: newData.grades } })
-                .then(data => {
-                    res.status(200).json(data);
+                .then(() => {
+                    // console.log(data.grades)
+                    // console.log(newData)
+                    res.status(200).json(newData);
                 })
         })
 
 })
 
 router.put("/grade-studentM", (req, res) => {
-    console.log("FIRING")
+    // console.log("FIRING")
     let newData;
     const { student, assignment, value, subject } = req.body;
     Student.findOne({ _id: student })

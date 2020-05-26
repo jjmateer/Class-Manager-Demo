@@ -113,7 +113,7 @@ export const gradeStudentN = (student, assignment, value, subject) => (dispatch)
             "Content-Type": "application/json"
         }
     }
-    const gradeInfo = {
+    let gradeInfo = {
         student: student, 
         assignment: assignment,
         value: value,
@@ -122,8 +122,10 @@ export const gradeStudentN = (student, assignment, value, subject) => (dispatch)
     axios.put(`http://localhost:3001/api/student/grade-studentN`, gradeInfo, config)
         .then(res => {
             dispatch({
-                type: GRADE_STUDENT_SUCCESS
+                type: GRADE_STUDENT_SUCCESS,
+                payload: res.data
             })
+            // console.log(res.data.grades)
         })
         .catch(err => {
             dispatch({ GRADE_STUDENT_FAIL })
@@ -137,7 +139,7 @@ export const gradeStudentM = (student, assignment, value, subject) => (dispatch)
             "Content-Type": "application/json"
         }
     }
-    const gradeInfo = {
+    let gradeInfo = {
         student: student, 
         assignment: assignment,
         value: value,
@@ -146,7 +148,8 @@ export const gradeStudentM = (student, assignment, value, subject) => (dispatch)
     axios.put(`http://localhost:3001/api/student/grade-studentM`, gradeInfo, config)
         .then(res => {
             dispatch({
-                type: GRADE_STUDENT_SUCCESS
+                type: GRADE_STUDENT_SUCCESS,
+                payload: res.data
             })
         })
         .catch(err => {

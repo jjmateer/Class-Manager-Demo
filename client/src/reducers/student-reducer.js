@@ -10,7 +10,7 @@ import {
     GET_STUDENTS_FAIL,
     GET_STUDENTS_SUCCESS,
     GRADE_STUDENT,
-    GRADE_STUDENT_SUCCESS,   
+    GRADE_STUDENT_SUCCESS,
     GRADE_STUDENT_FAIL
 } from "../actions/types";
 
@@ -51,10 +51,18 @@ export default function (state = initialState, action) {
         case ADD_STUDENT_SUCCESS:
         case UPDATE_STUDENT_INFO_SUCCESS:
         case GET_STUDENTS_SUCCESS:
-        case GRADE_STUDENT_SUCCESS:
             return {
                 ...state,
                 ...action.payload,
+                isLoading: false,
+            }
+        case GRADE_STUDENT_SUCCESS:
+            // console.log(` 123123 ${action.payload}`)
+            // console.log(action.payload)
+            return {
+                ...state,
+                // ...action.payload,
+                view_student: action.payload,
                 isLoading: false,
             }
         default:
