@@ -18,6 +18,7 @@ import PrintChartAll from "./pages/print-chart-all";
 import PrintChartRC from "./pages/print-chart-report-card";
 import ViewStudentGrades from "./pages/view-student-grades";
 import ViewSubject from "./Components/curriculum-components/view-subject";
+import CurriculumRoute from "./Components/routing-components/curriculum-private-route"
 import Curriculum from "./pages/curriculum";
 import 'whatwg-fetch';
 import openSocket from 'socket.io-client';
@@ -57,7 +58,8 @@ class App extends Component {
   };
   render() {
     this.sendSocketIO = this.sendSocketIO.bind(this);
-    console.log(socket)
+    // console.log(socket)
+    console.log(window.location.href)
     return (
       <Router>
         <>
@@ -76,7 +78,7 @@ class App extends Component {
             <PrivateRoute exact path="/print-chart" component={PrintChart} />
             <PrivateRoute exact path="/print-chart-all" component={PrintChartAll} />
             <PrivateRoute exact path="/print-chart-rc" component={PrintChartRC} />
-            <PrivateRoute exact path="/curriculum" component={Curriculum} />
+            <CurriculumRoute exact path="/curriculum" component={Curriculum} />
             <PrivateRoute exact path="/student-grades" component={ViewStudentGrades} />
             <Route component={ErrorC} />
           </Switch>

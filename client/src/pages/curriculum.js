@@ -25,7 +25,6 @@ import ViewSubject from "../Components/curriculum-components/view-subject";
 import VerifyDeleteModal from "../Components/curriculum-components/verify-delete-modal";
 
 
-
 class Curriculum extends Component {
     state = {
         title: "",
@@ -79,6 +78,8 @@ class Curriculum extends Component {
     addAssignment = event => {
         event.preventDefault();
         this.props.addAssignment(event.target.id, this.state.titleAdd, this.state.newAssignmentIndex)
+        // this.props.history.push("/curriculum")
+        window.location.reload();
         this.getSubjectsAndUpdate();
     }
 
@@ -106,6 +107,7 @@ class Curriculum extends Component {
         this.props.history.push("/print-chart-all");
     }
 
+
     render() {
         const { subjects } = this.props.curriculum;
         return (
@@ -129,7 +131,7 @@ class Curriculum extends Component {
                                 </div>
 
                                 <div id={`collapse${index}`} className="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                                    <div className="card-body">
+                                    <div className="card-body" style={{overflow:"auto"}}>
                                         <ButtonGroup style={{ marginBottom: 25 }}>
                                             <Button tag={Link} color="warning" to="/print-chart-all" id={subject.title} onClick={this.viewSubject} style={{ width: "100%", margin: "auto" }}>Spreadsheet</Button>
                                             <AddAssignment

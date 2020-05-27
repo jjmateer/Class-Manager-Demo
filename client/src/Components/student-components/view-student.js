@@ -24,7 +24,7 @@ const ViewStudent = React.memo((props) => {
         <ModalHeader>
           <Dropdown isOpen={dropdownOpen} toggle={toggle}>
             <DropdownToggle color="info" caret>
-              {props.view_subject ? props.view_subject : "Subjects"}
+              {props.view_subject ? props.view_subject.title : "Subjects"}
             </DropdownToggle>
             <DropdownMenu>
               {props.student.grades.map((subject, index) => {

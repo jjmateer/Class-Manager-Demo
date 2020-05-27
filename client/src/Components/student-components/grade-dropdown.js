@@ -31,10 +31,9 @@ const GradeDropdown = React.memo((props) => {
                         <Alert color={GradeStatusLabel === true ? "info" : "warning"}>
                 {GradeStatusLabel === true ? "Current Grade: " : "Previous Grade: "} {props.currentGrade}
                 </Alert>
-                <Alert color={GradeStatusLabel === true ? "info" : "warning"}>
                 {GradeStatusLabel === true ? null : "New Grade: "}
             <Dropdown style={{ margin: "auto", width: 100 }} isOpen={dropdownOpen} toggle={toggle}>
-                <DropdownToggle color={GradeStatusLabel === true ? "primary" : "warning"} caret>
+                <DropdownToggle color={GradeStatusLabel === true ? "warning" : "info"} caret>
                     {dropdownDisplay === null ? "Edit" : dropdownDisplay}
                 </DropdownToggle>
                 <DropdownMenu>
@@ -52,7 +51,6 @@ const GradeDropdown = React.memo((props) => {
                     ))}
                 </DropdownMenu>
             </Dropdown>
-            </Alert>
             </Alert>
         </>
     );
