@@ -8,11 +8,16 @@ const GradeDropdown = React.memo((props) => {
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const toggle = () => setDropdownOpen(prevState => !prevState);
     let [dropdownDisplay, setdropdownDisplay] = useState(null);
+    let [GradeStatusLabel, setGradeStatusLabel] = useState(true);
     let colorChange = [];
+    // let changeGradeMessage1 = true;
+    // let changeGradeMessage2 = true;
+    // let changeGradeMessage3 = false;
     const displayAndGrade = event => {
         props.gradeStudentN(event.target.id, event.target.name, event.target.value, event.target.getAttribute("subject"))
         setdropdownDisplay(event.target.value)
         colorChange.push(`${props.studentID}${props.assignmentTitle}${props.month}${props.subjectTitle}`)
+        setGradeStatusLabel(false);
         console.log(colorChange)
         console.log(`${props.studentID}${props.assignmentTitle}${props.month}${props.subjectTitle}`)
     }
@@ -23,10 +28,13 @@ const GradeDropdown = React.memo((props) => {
                     "warning"
                     :
                     "info"}>
-                Current grade: {props.currentGrade}
-            </Alert>
+                        <Alert color={GradeStatusLabel === true ? "info" : "warning"}>
+                {GradeStatusLabel === true ? "Current Grade: " : "Previous Grade: "} {props.currentGrade}
+                </Alert>
+                <Alert color={GradeStatusLabel === true ? "info" : "warning"}>
+                {GradeStatusLabel === true ? null : "New Grade: "}
             <Dropdown style={{ margin: "auto", width: 100 }} isOpen={dropdownOpen} toggle={toggle}>
-                <DropdownToggle color="warning" caret>
+                <DropdownToggle color={GradeStatusLabel === true ? "primary" : "warning"} caret>
                     {dropdownDisplay === null ? "Edit" : dropdownDisplay}
                 </DropdownToggle>
                 <DropdownMenu>
@@ -38,12 +46,14 @@ const GradeDropdown = React.memo((props) => {
                             name={props.assignmentTitle}
                             onClick={displayAndGrade}
                             month={props.month}
-                            value={letter}>
-                            {letter}
+                            value={letter === null ? null : letter}>
+                            {letter === null ? "Erase" : letter}
                         </DropdownItem>
                     ))}
                 </DropdownMenu>
             </Dropdown>
+            </Alert>
+            </Alert>
         </>
     );
 });

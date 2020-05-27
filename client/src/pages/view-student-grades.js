@@ -30,7 +30,7 @@ class ViewStudentGrades extends Component {
         lastName: "",
         view_subject: "",
         errors: {},
-        gradeLetters: ["L", "M", "P"],
+        gradeLetters: ["L", "M", "P", null],
         clickedColorChangeM: [],
         clickedColorChangeN: [],
     };
@@ -121,6 +121,7 @@ class ViewStudentGrades extends Component {
                                                             gradeLetters={this.state.gradeLetters}
                                                             studentID={this.props.student.view_student.sdata._id}
                                                             month={"May"}
+                                                            style={{height:100}}
                                                         />
                                                     </td>
                                                 </>
