@@ -2,6 +2,7 @@
 .print-chart-table td,
 .print-chart-table th {
   border: 1px solid black;
+  border-top:none;
 }
 
 .print-chart-table {
@@ -39,12 +40,12 @@
   font-size: 18px;
   padding-left: 3px;
   margin: 0;
-  margin-left:-200px;
+  /* margin-left:0px; */
 }
 
 #sideways-title-wrap {
   padding-left: 0 !important;
-  height:430px;
+  height:30px;
   max-width:30px;
   padding:0px!important;
   transform: rotate(-90deg);
@@ -55,7 +56,7 @@
 }
 
 #print-all-table-wrap {
-  /* margin-top:-200px; */
+  margin-top:200px;
   overflow:visible;
   font-size:18px;
 }

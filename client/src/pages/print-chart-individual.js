@@ -30,7 +30,7 @@ class PrintChart extends Component {
                 <div className="table-responsive" style={{marginTop: 50}}>
                     <table className="print-chart-table">
                         <thead>
-                            <tr style={{ width: 400 }}>
+                            <tr style={{ width: 400, borderTop: "1px solid black" }}>
                                 {view_student.sdata ?
                                     <>
                                         <th>NOVEMBER</th>

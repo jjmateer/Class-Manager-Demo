@@ -71,6 +71,7 @@ class Curriculum extends Component {
         event.preventDefault();
         this.props.createCurriculum(this.state.title);
         this.getSubjectsAndUpdate();
+        window.location.reload();
         console.log(`Adding subject: ${this.state.title}`)
 
     }
@@ -93,6 +94,7 @@ class Curriculum extends Component {
         event.preventDefault();
         this.props.deleteSubject(event.target.id, event.target.value)
         this.getSubjectsAndUpdate();
+        window.location.reload();
     }
 
     deleteAssignment = event => {
@@ -133,7 +135,7 @@ class Curriculum extends Component {
                                 <div id={`collapse${index}`} className="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                                     <div className="card-body" style={{overflow:"auto"}}>
                                         <ButtonGroup style={{ marginBottom: 25 }}>
-                                            <Button tag={Link} color="warning" to="/print-chart-all" id={subject.title} onClick={this.viewSubject} style={{ width: "100%", margin: "auto" }}>Spreadsheet</Button>
+                                            <Button tag={Link} color="info" to="/print-chart-all" id={subject.title} onClick={this.viewSubject} style={{ width: "100%", margin: "auto" }}>Spreadsheet</Button>
                                             <AddAssignment
                                                 title={subject.title}
                                                 addAssignment={this.addAssignment}

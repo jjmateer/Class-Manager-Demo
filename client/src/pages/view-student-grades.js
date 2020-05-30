@@ -30,7 +30,7 @@ class ViewStudentGrades extends Component {
         lastName: "",
         view_subject: "",
         errors: {},
-        gradeLetters: ["L", "M", "P", null],
+        gradeLetters: ["A", "B", "C", "D", "F", null],
         clickedColorChangeM: [],
         clickedColorChangeN: [],
     };

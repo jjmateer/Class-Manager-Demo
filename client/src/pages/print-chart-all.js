@@ -36,8 +36,8 @@ class PrintChartAll extends Component {
                     handleInputChange={this.handleInputChange}
                     month={this.state.month}
                 />
-                <div className="table-responsive" id="print-all-table-wrap">
-                    <table className="print-chart-table" id="rotate-table" style={{marginTop:200}}>
+                <div className="table-responsive" id="print-all-table-wrap" style={{marginBottom: 100}}>
+                    <table className="print-chart-table" id="rotate-table">
                         <thead>
                             <tr>
                                 <td>{this.props.curriculum.view_subject.title}</td>
