@@ -18,10 +18,10 @@ class Home extends Component {
 
     render() {
         return (
-            <>
+            <div id="homeBackground">
                 <Jumbotron><h1 className="display-3">Class manager</h1>
                 </Jumbotron>
-            </>
+            </div>
         );
     }
 }
