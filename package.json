@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/jjmateer/Class-manager#readme",
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "babel-eslint": "^10.0.3",
     "bcrypt": "^3.0.6",
     "bcryptjs": "^2.4.3",
